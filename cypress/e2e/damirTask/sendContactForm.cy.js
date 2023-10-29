@@ -2,7 +2,7 @@ import contactForm from "../../PageObjects/contactForm.js";
 import homePage from "../../PageObjects/homePage.js";
 import SignUp from "../../PageObjects/landingPage.js"
 
-describe('Register new account + Login', () => {
+describe('Successfully send contact us form (with data)', () => {
 
     let hp;
     let cf;
