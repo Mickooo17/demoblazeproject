@@ -50,4 +50,23 @@ Cypress.Commands.add('slowType', { prevSubject: true }, (subject, text, options 
     // Return the subject for further chaining
     return cy.wrap(subject);
   });
+
+  Cypress.Commands.add('clickOnRandomVisibleElement', { prevSubject: 'element' }, ($list) => {
+    cy.wrap($list).find(':visible').then(($elements) => {
+      if ($elements.length === 0) {
+        // Log a message or perform an action
+        cy.log('No visible elements found');
+      } else {
+        // Generate a random index within the range of visible elements
+        const randomIndex = Cypress._.random(0, $elements.length - 1);
+  
+        // Click on the element with the random index
+        cy.wrap($elements[randomIndex]).click();
+      }
+    });
+  });
+  
+  
+
+
   
